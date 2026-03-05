@@ -1,121 +1,105 @@
 const app = {
-    // 검색 엔진 수집을 위한 하드코딩된 게시글 데이터 (사무실 인테리어 사례)
+    // 검색 엔진 수집을 위한 하드코딩된 게시글 데이터 (최적화된 6개 슬롯)
     posts: [
         {
             id: 1,
-            title: "부산 서면 MBC 애견미용사무실 인테리어 - 123평 국비지원 교육 공간",
-            image: "https://cdn.imweb.me/upload/S20230327c0ff5f00bb0c3/d17951be56985.jpg",
-            description: "부산 서면 123평 규모의 MBC 애견미용사무실 인테리어 시공 사례. 밝고 화사한 크림 톤의 전문 오피스 환경 조성.",
+            title: "부산 카미스타 제조업 사옥 인테리어 - 158평 브랜드 서사 공간",
+            image: "https://cdn.imweb.me/upload/S20230327c0ff5f00bb0c3/2fea2463e38e2.jpg",
+            description: "부산 150평대 스포츠 웨어 제조업 오피스 시공 사례. 블랙 & 쿨 그레이 기반의 모던 시크 무드와 가변적 쇼룸 설계.",
             content: `
-                <p><b>부산 서면</b> 중심가에 위치한 123평 규모의 <b>국비지원 애견미용사무실</b> 인테리어 프로젝트입니다. 전체적인 디자인 컨셉은 화사한 크림 톤을 베이스로 하여, 사무실 특유의 청결함과 전문적인 이미지를 동시에 강조했습니다.</p>
-                <p>입구 라운지부터 상담실, 실습실까지 각 영역의 독립성을 확보하면서도 곡선형 디자인 요소를 가미하여 동선의 효율성을 극대화했습니다. 사용자들이 장시간 머물며 업무와 실습을 병행하는 공간인 만큼 시각적 안정감에 중점을 두어 완성되었습니다.</p>
+                <h3>공간으로 브랜드 서사를 구현한 부산 150평대 오피스</h3>
+                <p><b>1. 디자인 컨셉: 브랜드 서사의 공간화</b><br>
+                블랙 & 쿨 그레이 기반의 모던 시크 무드에 짙은 우드 텍스처를 더해 시각적 깊이감과 브랜드의 신뢰감을 구현했습니다. 단순 사무실을 넘어 스포츠웨어 브랜드의 역동성을 투영한 브랜딩 공간입니다.</p>
+                <p><b>2. 공간 설계 핵심 포인트</b><br>
+                폴딩도어 시스템을 통해 독립적 쇼룸과 개방형 이벤트 홀을 오가는 유연한 레이아웃을 구축했습니다. 매립형 유니폼 갤러리 월과 집중 조명을 활용해 브랜드 히스토리를 시각화했습니다.</p>
+                <p><b>3. 관련 법령 및 준수 사항</b><br>
+                건축물의 피난·방화구조 기준에 따른 불연·준불연 마감재 검토와 150평 이상 규모에 따른 소방 준공 기준을 완벽히 준수했습니다.</p>
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-                <p><a href="https://indecompany.imweb.me/A00/?idx=169678198&bmode=view" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
-                <p style="font-size: 12px; color: #888; margin-top: 10px;">출처: 인디컴퍼니 홈페이지</p>
+                <p><a href="https://indecompany.imweb.me/A02/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=169938782&t=board" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
             `
         },
         {
             id: 2,
-            title: "부산 범천동 KH정보교육원 IT·컴퓨터사무실 인테리어 - 140평 트렌디한 업무 공간",
-            image: "https://cdn.imweb.me/upload/S20230327c0ff5f00bb0c3/3847ea5974c52.jpg",
-            description: "부산 범천동 140평 규모의 IT 컴퓨터사무실 인테리어. 2030 세대를 겨냥한 블루 포인트와 모던한 감각의 시공 사례.",
+            title: "센텀 라인하우센코리아 사무실 인테리어 - 25평 컴팩트 스마트 오피스",
+            image: "https://cdn.imweb.me/upload/S20230327c0ff5f00bb0c3/c0ee45f29beac.png",
+            description: "해운대 센텀 25평 사무실 시공 사례. 화이트 & 블루 컬러 테라피와 미니멀리즘 디자인으로 공간 효율 극대화.",
             content: `
-                <p><b>부산 범천동</b>에 위치한 140평 규모의 <b>KH정보교육원 IT·컴퓨터사무실</b> 인테리어 현장입니다. 이번 프로젝트는 IT 분야의 역동적인 이미지를 살리기 위해 젊고 트렌디한 감각으로 설계되었습니다.</p>
-                <p>사무실의 브랜드 컬러인 블루와 라이트 그레이를 메인으로 사용하여 공간의 통일성을 주었으며, 높은 층고를 활용한 롱브릭 타일 시공으로 안정감을 더했습니다. 2030 사용자들의 취향에 맞춘 세련된 라운지 설계가 돋보이는 현장입니다.</p>
+                <h3>브랜드 정체성을 담은 20평대 현대적 업무 환경</h3>
+                <p><b>1. 디자인 컨셉: 신뢰감 있는 비즈니스 이미지</b><br>
+                화이트 베이스에 브랜드 상징색인 블루(Blue)를 포인트로 활용하여 시각적 확장감을 확보했습니다. 군더더기 없는 미니멀리즘 디자인으로 20평대 공간 효율을 극대화했습니다.</p>
+                <p><b>2. 공간 설계 및 기능적 요소</b><br>
+                순환형 동선 설계로 간섭을 최소화하고 유리 파티션을 활용해 개방감을 주었습니다. 매립형 슬림 엣지 조명으로 업무 몰입도를 높이는 환경을 제공합니다.</p>
+                <p><b>3. 관련 법령 및 관리 규정</b><br>
+                지식산업센터 공사 신고 및 승인 절차를 이행하고, 실 구획 변경에 따른 스프링클러 및 감지기 증설 등 소방 법규를 준수했습니다.</p>
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-                <p><a href="https://indecompany.imweb.me/A00/?idx=126681688&bmode=view" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
-                <p style="font-size: 12px; color: #888; margin-top: 10px;">출처: 인디컴퍼니 홈페이지</p>
+                <p><a href="https://indecompany.imweb.me/A02/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=166094211&t=board" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
             `
         },
         {
             id: 3,
-            title: "부산 기장 예설라 국어논술사무실 인테리어 - 43평 북카페형 업무 공간",
-            image: "https://cdn.imweb.me/upload/S20230327c0ff5f00bb0c3/5b7ff46150430.jpg",
-            description: "기장 예설라 국어논술사무실 43평 인테리어. 북카페를 닮은 아늑한 라운지와 감성적인 화이트톤 디자인.",
+            title: "부산 연제구 사무실 인테리어 - 30평 웜 화이트 & 우드 감성 오피스",
+            image: "https://cdn.imweb.me/upload/S20230327c0ff5f00bb0c3/b86a7b9950617.jpg",
+            description: "연제구 30평 사무실 인테리어. 웜 화이트와 우드의 조화로 고급스럽고 편안한 라운지 중심 공간 설계.",
             content: `
-                <p><b>부산 기장</b>에 위치한 40평대 <b>국어 논술 사무실</b>로, 북카페를 연상시키는 아늑한 라운지가 특징입니다. 부드러운 곡선 디자인과 플랜테리어를 적용하여 사무실의 첫인상을 따뜻하게 구성했습니다.</p>
-                <p>총 4개의 사무 공간은 시각적 피로를 최소화하는 정돈된 컬러로 마감되었으며, 화사한 화이트 톤을 통해 사용자들이 독서와 업무에 자연스럽게 몰입할 수 있는 감성적인 업무 환경을 구현했습니다.</p>
+                <h3>따뜻한 감성과 효율적 레이아웃의 조화</h3>
+                <p><b>1. 디자인 컨셉: 웜 화이트와 우드</b><br>
+                따뜻한 웜 화이트 베이스에 우드 마감재를 매치하여 편안한 분위기를 조성했습니다. 유행을 타지 않는 기본 마감에 가구 스타일링으로 다채로움을 더했습니다.</p>
+                <p><b>2. 공간 설계 및 레이아웃</b><br>
+                벽체 구분을 최소화하여 답답함을 줄이고 휴게 공간(라운지), 카페테리아에 비중을 두어 직원 복지를 강화했습니다. 넉넉한 유격 공간 확보로 쾌적한 독립 업무 환경을 제공합니다.</p>
+                <p><b>3. 시공 효율 및 디테일</b><br>
+                가성비 높은 마감재를 활용해 30평 기준 약 10일 만에 공사를 완료하며 시공 효율을 극대화한 현장입니다.</p>
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-                <p><a href="https://indecompany.imweb.me/A00/?idx=169978230&bmode=view" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
-                <p style="font-size: 12px; color: #888; margin-top: 10px;">출처: 인디컴퍼니 홈페이지</p>
+                <p><a href="https://indecompany.imweb.me/A02/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=122712325&t=board" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
             `
         },
         {
             id: 4,
-            title: "포항 북구 런던 사옥 인테리어 - 43평 몰입형 화이트&우드 디자인",
-            image: "https://cdn.imweb.me/upload/S20230327c0ff5f00bb0c3/680989bf77c37.jpg",
-            description: "포항 사옥 43평 인테리어 사례. 화이트와 우드의 조화로 완성한 집중력 높은 업무 공간.",
+            title: "부산 명지 사옥 인테리어 - 하이엔드 내추럴 럭셔리 오피스 솔루션",
+            image: "https://cdn.imweb.me/upload/S20230327c0ff5f00bb0c3/0f12857611c77.jpg",
+            description: "명지신도시 대규모 사옥 프로젝트. 우드 필름과 곡선미를 활용한 프리미엄 수직 공간 브랜딩 사례.",
             content: `
-                <p><b>포항 북구</b>에 위치한 사옥 현장으로, 화이트의 청결함과 우드의 따뜻함이 공존하는 40평대 업무 공간입니다. 라운드 디테일과 간접 조명을 활용해 부드럽고 고급스러운 첫인상을 완성했습니다.</p>
-                <p>유리로 구획된 개방형 집무실은 자연광을 적극적으로 끌어들여 업무 효율을 높였으며, 상담실의 곡면 유리 설계는 시각적 안정감과 프라이버시를 동시에 제공하여 신뢰감 있는 오피스 환경을 선사합니다.</p>
+                <h3>우드와 곡선미가 어우러진 하이엔드 사옥 인테리어</h3>
+                <p>로비부터 5층까지 대규모 수직 공간을 하나의 브랜드 서사로 연결했습니다. 내추럴 럭셔리(Natural Luxury)를 지향하며 도심 속 자연의 온기를 담았습니다.</p>
+                <p><b>1. 톤앤매너: 프리미엄 우드 무드</b><br>
+                실제 원목의 질감을 구현한 우드 필름 마감으로 정돈된 이미지와 심리적 안정감을 동시에 확보했습니다.</p>
+                <p><b>2. 핵심 디자인 포인트</b><br>
+                계단 구조물과 플랜테리어를 결합하여 사옥의 상징적인 오브제를 완성했습니다. 곡선형 원형 회의실은 유연한 소통 분위기를 유도하며 시각적 리듬감을 부여합니다.</p>
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-                <p><a href="https://indecompany.imweb.me/A00/?idx=169987154&bmode=view" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
-                <p style="font-size: 12px; color: #888; margin-top: 10px;">출처: 인디컴퍼니 홈페이지</p>
+                <p><a href="https://indecompany.imweb.me/A02/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=166084218&t=board" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
             `
         },
         {
             id: 5,
-            title: "양산 별하랑 국어사무실 인테리어 - 40평 라운지 중심의 창의적 공간",
-            image: "https://cdn.imweb.me/upload/S20230327c0ff5f00bb0c3/1ca46dd00ad4f.jpg",
-            description: "양산 별하랑 국어사무실 인테리어. 사용자들의 눈높이에 맞춘 낮은 책장과 따뜻한 채광 설계.",
+            title: "명지 프레스티지바이오파마IDC 사옥 인테리어 - 바이오 기업의 기능미",
+            image: "https://cdn.imweb.me/upload/S20230327c0ff5f00bb0c3/54460625eb866.jpg",
+            description: "글로벌 바이오 사옥 인테리어. 흡음 설계 세미나실과 브랜드 아이덴티티를 담은 고품격 연구 공간.",
             content: `
-                <p><b>양산</b> 별하랑 국어사무실은 교육 철학을 담아 라운지 공간을 비중 있게 설계한 현장입니다. 사용자들이 도서관처럼 편안하게 독서할 수 있도록 낮은 책장을 맞춤 제작하여 친근한 분위기를 조성했습니다.</p>
-                <p>건물 본연의 따뜻한 채광을 극대화하는 조명 설계로 자연스럽고 안락한 무드를 완성했으며, 사용자들이 자유롭게 휴식하며 책과 친해질 수 있는 창의적인 부산사무실인테리어의 특징을 잘 보여줍니다.</p>
+                <h3>글로벌 바이오 기업의 위상과 정체성을 담은 공간</h3>
+                <p><b>1. 세미나실: 고성능 흡음 설계</b><br>
+                대규모 소통을 위해 벽면과 천장에 흡음 패널을 도입, 시각적 따뜻함과 청각적 안정감을 동시에 제공하는 고품격 강연 환경을 완성했습니다.</p>
+                <p><b>2. VIP실 & 스태프실</b><br>
+                VIP실은 스페셜 페인팅으로 하이엔드 무드를, 스태프실은 브랜드 컬러인 블루를 활용해 몰입형 오피스를 구축했습니다.</p>
+                <p><b>3. 디자인 밸런스</b><br>
+                우드와 메탈 소재를 믹스하여 미래지향적인 이미지와 인간 중심적인 따뜻함 사이의 균형을 맞춘 프로젝트입니다.</p>
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-                <p><a href="https://indecompany.imweb.me/A00/?idx=121201368&bmode=view" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
-                <p style="font-size: 12px; color: #888; margin-top: 10px;">출처: 인디컴퍼니 홈페이지</p>
+                <p><a href="https://indecompany.imweb.me/A02/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=166081237&t=board" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
             `
         },
         {
             id: 6,
-            title: "해운대 센텀 유니크오피스 인테리어 - 40평 개방감을 극대화한 변신",
-            image: "https://cdn.imweb.me/upload/S20230327c0ff5f00bb0c3/4ce286b475d67.jpg",
-            description: "해운대 센텀 40평 오피스 인테리어. 3m 높은 층고와 유리 부스 시공으로 완성한 시원한 공간.",
+            title: "명지 마리넥스 사무실 인테리어 - 38평 스마트 해양 오피스",
+            image: "https://cdn.imweb.me/upload/S20230327c0ff5f00bb0c3/cf6c3fc010aac.jpg",
+            description: "명지신도시 38평 사무실 시공 사례. 해양을 모티브로 한 딥블루 포인트와 개방감 있는 레이아웃.",
             content: `
-                <p>기존 공간을 철거하고 오피스로 새롭게 탄생시킨 <b>해운대 센텀</b> 현장입니다. 좁은 공간의 답답함을 해결하기 위해 층고를 3m로 높이고, 상담실과 집무실을 유리 부스로 마감하여 시각적 개방감을 확보했습니다.</p>
-                <p>상가 복도 쪽으로 크게 오픈한 픽스창은 외부 풍경을 액자처럼 담아내어 공간을 더욱 화사하게 만들어줍니다. 관련 규정을 완벽히 준수하면서도 자유로운 소통이 가능한 세련된 업무 공간입니다.</p>
+                <h3>해양의 서사를 담은 스마트 오피스 솔루션</h3>
+                <p><b>1. 톤앤매너: 화이트 & 딥블루 대비</b><br>
+                슈퍼 화이트 톤으로 확장감을 주고, 딥블루 컬러를 포인트로 활용해 현대적이고 신뢰감 있는 브랜드 인상을 전달합니다.</p>
+                <p><b>2. 디자인 모티브</b><br>
+                수평선을 닮은 리니어 조명과 곡선형 가구 배치로 해양의 유연함을 표현했습니다. 유리 파티션으로 개방감과 독립성을 동시에 확보했습니다.</p>
+                <p><b>3. 업무 최적화</b><br>
+                눈부심 방지 LED 조명과 넉넉한 배선 통로 확보로 현대 오피스의 편의성을 극대화한 38평 스마트 워크스테이션입니다.</p>
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-                <p><a href="https://indecompany.imweb.me/A00/?idx=19797828&bmode=view" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
-                <p style="font-size: 12px; color: #888; margin-top: 10px;">출처: 인디컴퍼니 홈페이지</p>
-            `
-        },
-        {
-            id: 7,
-            title: "양산 물금 루틴수학사무실 인테리어 - 56평 하이엔드 몰입형 환경",
-            image: "https://cdn.imweb.me/upload/S20230327c0ff5f00bb0c3/8b2f389ade133.png",
-            description: "양산 물금 56평 수학사무실 시공 사례. 베이지와 그린 컬러 포인트를 활용한 신뢰감 있는 공간.",
-            content: `
-                <p><b>양산 물금</b>에 위치한 56평 규모의 수학사무실로, 차분한 베이지 톤에 그린 컬러 포인트를 활용하여 브랜드 신뢰도를 높였습니다. 곡면 벽체와 유리 파티션을 통해 부드러운 동선과 개방감을 동시에 잡았습니다.</p>
-                <p>업무 공간 내부에는 시각적 피로를 줄여주는 그린 보드와 우드 소재를 매치하여 몰입도를 극대화했습니다. 정돈된 여백의 미가 느껴지는 복도와 맞춤형 사이니지까지 하이엔드 오피스 공간의 정석을 보여줍니다.</p>
-                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-                <p><a href="https://indecompany.imweb.me/A00/?idx=170078463&bmode=view" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
-                <p style="font-size: 12px; color: #888; margin-top: 10px;">출처: 인디컴퍼니 홈페이지</p>
-            `
-        },
-        {
-            id: 8,
-            title: "부산 강서구 아담리즈 수학사무실 인테리어 - 50평 부드러운 곡선 미학",
-            image: "https://cdn.imweb.me/upload/S20230327c0ff5f00bb0c3/9af5045acc665.jpg",
-            description: "부산 강서구 50평대 수학사무실 인테리어. 곡선과 원형 요소를 활용한 따뜻하고 생기 넘치는 공간.",
-            content: `
-                <p><b>부산 강서구</b> 50평대 수학사무실 프로젝트로, 사용자들에게 친근함을 줄 수 있는 부드러운 곡선과 원형 디자인을 메인 컨셉으로 잡았습니다. 베이지와 우드 톤의 조화로 전체적으로 밝고 포근한 분위기를 연출했습니다.</p>
-                <p>입구와 오픈 공간에는 적절한 플랜테리어를 배치하여 자연스럽고 생동감 넘치는 환경을 조성했습니다. 시각적 자극을 줄이면서도 감성을 자극하는 안정적인 업무 공간입니다.</p>
-                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-                <p><a href="https://indecompany.imweb.me/A00/?idx=166037043&bmode=view" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
-                <p style="font-size: 12px; color: #888; margin-top: 10px;">출처: 인디컴퍼니 홈페이지</p>
-            `
-        },
-        {
-            id: 9,
-            title: "부산 센텀 EM 오피스 인테리어 - 31평 컬러 테라피 집중력 강화",
-            image: "https://cdn.imweb.me/upload/S20230327c0ff5f00bb0c3/df2ad7789e08f.jpg",
-            description: "센텀 31평 사무실 전문 인테리어. 노란색 컬러 테라피를 활용한 몰입도 높은 공간 설계.",
-            content: `
-                <p>사용자들이 장시간 머무는 <b>부산 센텀</b>의 30평대 사무실 전문 현장입니다. 심리적 안정과 집중력 향상을 위해 노란색을 활용한 <b>컬러 테라피</b>를 인테리어에 도입했습니다.</p>
-                <p>업무 효율을 높여주는 노란색 포인트를 미드센추리 모던 스타일의 가구와 조합하여 세련된 분위기를 완성했습니다. 공간의 크리에이티브한 감각을 살려 사용자들이 자발적으로 업무에 몰입하고 싶은 환경을 구축했습니다.</p>
-                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-                <p><a href="https://indecompany.imweb.me/A00/?idx=121208770&bmode=view" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
-                <p style="font-size: 12px; color: #888; margin-top: 10px;">출처: 인디컴퍼니 홈페이지</p>
+                <p><a href="https://indecompany.imweb.me/A02/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=166171577&t=board" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
             `
         }
     ],
@@ -160,7 +144,7 @@ const app = {
 
         this.updateSEO(post);
 
-        const otherPosts = this.posts.filter(p => p.id !== id).slice(0, 6);
+        const otherPosts = this.posts.filter(p => p.id !== id).slice(0, 3);
 
         const content = document.getElementById('post-detail-content');
         if (!content) return;
@@ -196,7 +180,7 @@ const app = {
         const baseUrl = "https://officeinteriors.pages.dev/";
         const siteName = "부산 사무실 인테리어 사례";
         const defaultDesc = "부산 지역 사무실 인테리어 전문 시공 사례 모음. 사옥, 오피스, 사무실 등 업종별 맞춤 디자인과 합리적인 견적 정보를 확인하세요.";
-        const defaultImg = "https://officeinteriors.pages.dev/favicon.svg";
+        const defaultImg = "https://officeinteriors.pages.dev/og-image.jpg";
 
         let title, description, url, image, type;
 
