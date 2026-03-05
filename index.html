@@ -1,14 +1,155 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부산 사무실 인테리어 사례 | 전문 시공 포트폴리오</title>
+    <meta name="description" content="부산 지역 사무실 인테리어 전문 시공 사례 모음. 영어, 수학, 음악 사무실 등 업종별 맞춤 디자인과 합리적인 견적 정보를 확인하세요.">
+    <meta name="keywords" content="부산사무실인테리어, 부산인테리어, 사무실리모델링, 부산사무실공사">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pbn-2.pages.dev/">
+    <meta property="og:title" content="부산 사무실 인테리어 사례 | 전문 시공 포트폴리오">
+    <meta property="og:description" content="부산 지역 사무실 인테리어 전문 시공 사례 모음. 영어, 수학, 음악 사무실 등 업종별 맞춤 디자인과 합리적인 견적 정보를 확인하세요.">
+    <meta property="og:image" content="https://pbn-2.pages.dev/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pbn-2.pages.dev/">
+    <meta property="twitter:title" content="부산 사무실 인테리어 사례 | 전문 시공 포트폴리오">
+    <meta property="twitter:description" content="부산 지역 사무실 인테리어 전문 시공 사례 모음. 영어, 수학, 음악 사무실 등 업종별 맞춤 디자인과 합리적인 견적 정보를 확인하세요.">
+    <meta property="twitter:image" content="https://pbn-2.pages.dev/og-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://pbn-2.pages.dev/">
+
+    <!-- Verification -->
+    <meta name="naver-site-verification" content="266d16b25254364bd48ca138bc4e5cf6c151fec3" />
+    <meta name="google-site-verification" content="rQ3T4Zb0qsnyiDBuBfghNWEo0M7zaJluYtVWXfZhH2Q" />
+    
+    <!-- Favicon (Primary Color #dd5828) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23dd5828%22/><text y=%22.9em%22 font-size=%2290%22 fill=%22white%22>B</text></svg>">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <!-- SEO Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "부산 사무실 인테리어 사례",
+      "url": "https://pbn-2.pages.dev",
+      "description": "부산 지역 사무실 인테리어 전문 시공 사례 모음",
+      "publisher": {
+        "@type": "Organization",
+        "name": "부산 사무실 인테리어 사례"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": []
+    }
+    </script>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <h1 id="site-title"><a href="#home">부산 사무실 인테리어 사례</a></h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="app-content">
+        <!-- Home View -->
+        <section id="home-view" class="view">
+            <div class="container">
+                <div id="posts-grid" class="posts-grid">
+                    <!-- Posts injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Detail View -->
+        <section id="detail-view" class="view hidden">
+            <div class="container">
+                <div class="back-nav">
+                    <a href="#home" class="btn-back">← 목록으로 돌아가기</a>
+                </div>
+                <div id="post-detail-content"></div>
+            </div>
+        </section>
+
+        <!-- Admin View -->
+        <section id="admin-view" class="view hidden">
+            <div class="container">
+                <h2>새 게시글 작성</h2>
+                <form id="post-form">
+                    <input type="text" id="post-title" placeholder="게시글 제목" required>
+                    <label for="post-image-file" class="file-label">이미지 업로드 (선택)</label>
+                    <input type="file" id="post-image-file" accept="image/*">
+                    <div id="image-preview"></div>
+                    
+                    <div class="editor-tools">
+                        <button type="button" onclick="app.execCmd('bold')">B</button>
+                        <button type="button" onclick="app.execCmd('fontSize', '5')">크게</button>
+                        <button type="button" onclick="app.execCmd('foreColor', '#dd5828')">주황색</button>
+                        <button type="button" onclick="app.execCmd('createLink', prompt('URL을 입력하세요:'))">링크 삽입</button>
+                    </div>
+                    <div id="post-body" contenteditable="true" class="editor-area"></div>
+                    <button type="submit" class="btn-submit">게시하기</button>
+                    <button type="button" onclick="location.hash='#home'" class="btn-cancel">취소</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Partner Section -->
+    <section class="partner-section">
+        <div class="container">
+            <h3>파트너 사이트</h3>
+            <div class="partner-links">
+                <a href="https://inde.co.kr" target="_blank" class="partner-link">인디컴퍼니 홈페이지</a>
+                <a href="https://blog.naver.com/dudu8882" target="_blank" class="partner-link">인디컴퍼니 블로그</a>
+                <a href="https://busaninterior.kr" target="_blank" class="partner-link">부산인테리어 정보</a>
+                <a href="https://pbn-1.pages.dev" target="_blank" class="partner-link">인테리어 면적계산기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 부산 사무실 인테리어 사례. All rights reserved.</p>
+            <div class="footer-bottom">
+                <button id="privacy-btn" class="btn-link">개인정보처리방침</button>
+                <button id="admin-btn" class="btn-admin-small">관리자</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Modal -->
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>개인정보처리방침</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>본 사이트는 부산 사무실 인테리어 정보를 제공하는 목적으로 운영됩니다.</p>
+                <p><strong>1. 수집 항목:</strong> 별도의 개인정보를 수집하지 않습니다.</p>
+                <p><strong>2. 수집 목적:</strong> 사이트 운영 및 파트너 사이트 연결.</p>
+                <p><strong>3. 제3자 제공:</strong> 외부 링크 이동 시 해당 사이트의 정책을 따릅니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
 </body>
 </html>
