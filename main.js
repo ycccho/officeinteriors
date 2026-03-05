@@ -16,6 +16,8 @@ const app = {
                 건축물의 피난·방화구조 기준에 따른 불연·준불연 마감재 검토와 150평 이상 규모에 따른 소방 준공 기준을 완벽히 준수했습니다.</p>
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
                 <p><a href="https://indecompany.imweb.me/A02/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=169938782&t=board" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
+                <p><a href="https://pbn-2.pages.dev/" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산인테리어사례모음 보러가기</a></p>
+                <p style="font-size: 12px; color: #888; margin-top: 10px;">출처: 인디컴퍼니 홈페이지</p>
             `
         },
         {
@@ -33,6 +35,8 @@ const app = {
                 지식산업센터 공사 신고 및 승인 절차를 이행하고, 실 구획 변경에 따른 스프링클러 및 감지기 증설 등 소방 법규를 준수했습니다.</p>
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
                 <p><a href="https://indecompany.imweb.me/A02/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=166094211&t=board" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
+                <p><a href="https://pbn-2.pages.dev/" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산인테리어사례모음 보러가기</a></p>
+                <p style="font-size: 12px; color: #888; margin-top: 10px;">출처: 인디컴퍼니 홈페이지</p>
             `
         },
         {
@@ -50,6 +54,8 @@ const app = {
                 가성비 높은 마감재를 활용해 30평 기준 약 10일 만에 공사를 완료하며 시공 효율을 극대화한 현장입니다.</p>
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
                 <p><a href="https://indecompany.imweb.me/A02/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=122712325&t=board" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
+                <p><a href="https://pbn-2.pages.dev/" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산인테리어사례모음 보러가기</a></p>
+                <p style="font-size: 12px; color: #888; margin-top: 10px;">출처: 인디컴퍼니 홈페이지</p>
             `
         },
         {
@@ -66,6 +72,8 @@ const app = {
                 계단 구조물과 플랜테리어를 결합하여 사옥의 상징적인 오브제를 완성했습니다. 곡선형 원형 회의실은 유연한 소통 분위기를 유도하며 시각적 리듬감을 부여합니다.</p>
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
                 <p><a href="https://indecompany.imweb.me/A02/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=166084218&t=board" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
+                <p><a href="https://pbn-2.pages.dev/" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산인테리어사례모음 보러가기</a></p>
+                <p style="font-size: 12px; color: #888; margin-top: 10px;">출처: 인디컴퍼니 홈페이지</p>
             `
         },
         {
@@ -83,6 +91,8 @@ const app = {
                 우드와 메탈 소재를 믹스하여 미래지향적인 이미지와 인간 중심적인 따뜻함 사이의 균형을 맞춘 프로젝트입니다.</p>
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
                 <p><a href="https://indecompany.imweb.me/A02/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=166081237&t=board" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
+                <p><a href="https://pbn-2.pages.dev/" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산인테리어사례모음 보러가기</a></p>
+                <p style="font-size: 12px; color: #888; margin-top: 10px;">출처: 인디컴퍼니 홈페이지</p>
             `
         },
         {
@@ -100,6 +110,8 @@ const app = {
                 눈부심 방지 LED 조명과 넉넉한 배선 통로 확보로 현대 오피스의 편의성을 극대화한 38평 스마트 워크스테이션입니다.</p>
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
                 <p><a href="https://indecompany.imweb.me/A02/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=166171577&t=board" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산사무실인테리어 본문 보러가기</a></p>
+                <p><a href="https://pbn-2.pages.dev/" target="_blank" style="color: #dd5828; font-weight: bold; text-decoration: none;">👉 부산인테리어사례모음 보러가기</a></p>
+                <p style="font-size: 12px; color: #888; margin-top: 10px;">출처: 인디컴퍼니 홈페이지</p>
             `
         }
     ],
