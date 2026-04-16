@@ -141,6 +141,8 @@ const app = {
             this.showDetail(id);
         } else if (hash === '#admin') {
             this.showAdmin();
+        } else if (hash === '#naver-crawler') {
+            this.showNaverCrawler();
         }
     },
 
@@ -250,9 +252,22 @@ const app = {
         }
     },
 
+    showNaverCrawler() {
+        const pass = prompt("admin 암호를 입력하세요:");
+        if (pass === "2") {
+            document.getElementById('naver-crawler-view').classList.remove('hidden');
+        } else {
+            alert("비밀번호가 틀렸습니다.");
+            location.hash = '#home';
+        }
+    },
+
     setupEventListeners() {
         const adminBtn = document.getElementById('admin-btn');
         if (adminBtn) adminBtn.addEventListener('click', () => location.hash = '#admin');
+
+        const realAdminBtn = document.getElementById('real-admin-btn');
+        if (realAdminBtn) realAdminBtn.addEventListener('click', () => location.hash = '#naver-crawler');
         
         const privacyBtn = document.getElementById('privacy-btn');
         if (privacyBtn) privacyBtn.addEventListener('click', () => this.toggleModal(true));
@@ -277,11 +292,155 @@ const app = {
 
         const postForm = document.getElementById('post-form');
         if (postForm) postForm.addEventListener('submit', (e) => this.handlePostSubmit(e));
+
+        const startCrawlBtn = document.getElementById('start-crawl-btn');
+        if (startCrawlBtn) startCrawlBtn.addEventListener('click', () => this.startCrawl());
+
+        const downloadExcelBtn = document.getElementById('download-excel-btn');
+        if (downloadExcelBtn) downloadExcelBtn.addEventListener('click', () => this.downloadExcel());
         
         window.onclick = (event) => {
             const modal = document.getElementById('privacy-modal');
             if (event.target == modal) this.toggleModal(false);
         };
+    },
+
+    async startCrawl() {
+        const blogId = document.getElementById('blog-id-input').value.trim();
+        if (!blogId) { alert("블로그 아이디를 입력하세요."); return; }
+
+        const status = document.getElementById('crawl-status');
+        const resultsArea = document.getElementById('crawler-results-area');
+        const resultsBody = document.getElementById('results-body');
+        const totalSpan = document.getElementById('total-count');
+        const downloadBtn = document.getElementById('download-excel-btn');
+
+        status.innerText = "작업 시작 중... (전체보기 페이지 로드)";
+        resultsArea.classList.remove('hidden');
+        resultsBody.innerHTML = '';
+        this.crawlData = [];
+        downloadBtn.disabled = true;
+
+        try {
+            const proxyUrl = "https://api.allorigins.win/get?url=";
+            let currentPage = 1;
+            let hasNext = true;
+            let totalProcessed = 0;
+
+            while (hasNext) {
+                status.innerText = `목록 추출 중... (${currentPage}페이지)`;
+                const listUrl = `https://blog.naver.com/PostList.naver?blogId=${blogId}&categoryNo=0&from=postList&currentPage=${currentPage}`;
+                const response = await fetch(`${proxyUrl}${encodeURIComponent(listUrl)}`);
+                const data = await response.json();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data.contents, 'text/html');
+
+                const rows = doc.querySelectorAll('#toplistBody tr');
+                if (!rows || rows.length === 0) {
+                    hasNext = false;
+                    break;
+                }
+
+                for (const row of rows) {
+                    const linkAnchor = row.querySelector('a.pcol2');
+                    if (!linkAnchor) continue;
+
+                    const title = linkAnchor.innerText.trim();
+                    const urlPath = linkAnchor.getAttribute('href');
+                    const logNo = urlPath.split('logNo=')[1]?.split('&')[0];
+                    const fullUrl = `https://blog.naver.com/${blogId}/${logNo}`;
+
+                    totalProcessed++;
+                    status.innerText = `상세 내용 추출 중: ${totalProcessed}번째 게시글...`;
+
+                    const postData = await this.fetchPostDetail(blogId, logNo, title, fullUrl);
+                    this.crawlData.push(postData);
+                    this.renderCrawlRow(postData, totalProcessed);
+                    totalSpan.innerText = totalProcessed;
+                }
+
+                const nextBtn = doc.querySelector('.next.pcol2');
+                if (nextBtn && currentPage < 50) { // 안전을 위해 50페이지 제한
+                    currentPage++;
+                } else {
+                    hasNext = false;
+                }
+            }
+
+            status.innerText = "모든 작업 완료!";
+            downloadBtn.disabled = false;
+
+        } catch (error) {
+            console.error(error);
+            status.innerText = "오류 발생: " + error.message;
+        }
+    },
+
+    async fetchPostDetail(blogId, logNo, title, fullUrl) {
+        const proxyUrl = "https://api.allorigins.win/get?url=";
+        const detailUrl = `https://blog.naver.com/PostView.naver?blogId=${blogId}&logNo=${logNo}`;
+        
+        try {
+            const response = await fetch(`${proxyUrl}${encodeURIComponent(detailUrl)}`);
+            const data = await response.json();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data.contents, 'text/html');
+
+            const contentDiv = doc.querySelector('.se-main-container');
+            const contentText = contentDiv ? contentDiv.innerText : "내용을 찾을 수 없음";
+            const charCount = contentText.replace(/\s/g, '').length;
+            const isOmitted = await this.checkOmission(title, fullUrl);
+
+            return { title, url: fullUrl, content: contentText, charCount, isOmitted };
+        } catch (e) {
+            return { title, url: fullUrl, content: "에러", charCount: 0, isOmitted: "오류" };
+        }
+    },
+
+    async checkOmission(title, targetUrl) {
+        const proxyUrl = "https://api.allorigins.win/get?url=";
+        const searchUrl = `https://search.naver.com/search.naver?where=view&query=${encodeURIComponent(title)}`;
+        
+        try {
+            const response = await fetch(`${proxyUrl}${encodeURIComponent(searchUrl)}`);
+            const data = await response.json();
+            const logNo = targetUrl.split('/').pop();
+            return data.contents.includes(logNo) ? "정상" : "누락";
+        } catch (e) {
+            return "확인불가";
+        }
+    },
+
+    renderCrawlRow(data, index) {
+        const resultsBody = document.getElementById('results-body');
+        const tr = document.createElement('tr');
+        tr.style.borderBottom = "1px solid #eee";
+        const omissionColor = data.isOmitted === "정상" ? "green" : (data.isOmitted === "누락" ? "red" : "gray");
+        tr.innerHTML = `
+            <td style="padding: 10px; border: 1px solid #eee; text-align: center;">${index}</td>
+            <td style="padding: 10px; border: 1px solid #eee;">${data.title}</td>
+            <td style="padding: 10px; border: 1px solid #eee;"><a href="${data.url}" target="_blank" style="color: blue; text-decoration: underline;">링크</a></td>
+            <td style="padding: 10px; border: 1px solid #eee; text-align: center;">${data.charCount}</td>
+            <td style="padding: 10px; border: 1px solid #eee; text-align: center; font-weight: bold; color: ${omissionColor}">${data.isOmitted}</td>
+        `;
+        resultsBody.appendChild(tr);
+    },
+
+    downloadExcel() {
+        if (!this.crawlData || this.crawlData.length === 0) return;
+        const excelData = this.crawlData.map((item, index) => ({
+            "번호": index + 1,
+            "제목": item.title,
+            "URL": item.url,
+            "글자수(공백제외)": item.charCount,
+            "누락여부": item.isOmitted,
+            "본문내용": item.content.substring(0, 30000)
+        }));
+        const worksheet = XLSX.utils.json_to_sheet(excelData);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, "블로그 게시글");
+        const blogId = document.getElementById('blog-id-input').value || 'blog';
+        XLSX.writeFile(workbook, `naver_blog_extract_${blogId}.xlsx`);
     },
 
     execCmd(command, value = null) {
@@ -292,15 +451,7 @@ const app = {
         e.preventDefault();
         const title = document.getElementById('post-title').value;
         const content = document.getElementById('post-body').innerHTML;
-
-        const newPost = {
-            id: Date.now(),
-            title,
-            image: this.uploadedImage || "",
-            content,
-            description: title
-        };
-
+        const newPost = { id: Date.now(), title, image: this.uploadedImage || "", content, description: title };
         this.posts.unshift(newPost);
         this.renderPosts();
         alert("게시글이 임시 등록되었습니다.");

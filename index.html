@@ -30,6 +30,9 @@
     <meta name="naver-site-verification" content="f2908928822a8ae879df4971e1019dc7c73f46a5" />
     <meta name="google-site-verification" content="google22f2e47b93018bcb" />
 
+    <!-- Excel Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -154,6 +157,43 @@
                 </form>
             </div>
         </section>
+        <!-- Naver Crawler View -->
+        <section id="naver-crawler-view" class="view hidden">
+            <div class="container">
+                <h2>네이버 블로그 게시글 추출 시스템</h2>
+                <div class="crawler-controls" style="margin: 20px 0; padding: 20px; background: #eee; border-radius: 8px;">
+                    <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 10px;">
+                        <span>https://blog.naver.com/</span>
+                        <input type="text" id="blog-id-input" placeholder="블로그 아이디 입력" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                        <button id="start-crawl-btn" class="btn-submit" style="width: auto; margin: 0; padding: 10px 20px;">작업 시작</button>
+                    </div>
+                    <div id="crawl-status" style="font-size: 0.9rem; color: #666;">블로그 아이디를 입력하고 시작 버튼을 누르세요.</div>
+                </div>
+
+                <div id="crawler-results-area" class="hidden">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h3>추출 결과 (<span id="total-count">0</span>건)</h3>
+                        <button id="download-excel-btn" class="btn-submit" style="width: auto; margin: 0; padding: 8px 15px; background: #217346;" disabled>엑셀 다운로드</button>
+                    </div>
+                    <div style="overflow-x: auto; background: white; border: 1px solid #ddd; border-radius: 4px;">
+                        <table id="results-table" style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                            <thead>
+                                <tr style="background: #f8f8f8; border-bottom: 2px solid #ddd;">
+                                    <th style="padding: 10px; border: 1px solid #eee;">번호</th>
+                                    <th style="padding: 10px; border: 1px solid #eee;">제목</th>
+                                    <th style="padding: 10px; border: 1px solid #eee;">URL</th>
+                                    <th style="padding: 10px; border: 1px solid #eee;">글자수</th>
+                                    <th style="padding: 10px; border: 1px solid #eee;">누락여부</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results-body">
+                                <!-- 결과 데이터 삽입 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Partner Section -->
@@ -177,6 +217,7 @@
             <div class="footer-bottom">
                 <button id="privacy-btn" class="btn-link">개인정보처리방침</button>
                 <button id="admin-btn" class="btn-admin-small">관리자</button>
+                <button id="real-admin-btn" style="background: none; border: none; color: #e0e0e0; cursor: pointer; font-size: 0.75rem;">admin</button>
             </div>
         </div>
     </footer>
