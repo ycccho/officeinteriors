@@ -351,6 +351,12 @@ const app = {
                     const fullUrl = `https://blog.naver.com/${blogId}/${logNo}`;
 
                     totalProcessed++;
+                    status.innerText = `대기 중... (부하 방지를 위해 4~6초 지연 실행) [${totalProcessed}번째]`;
+                    
+                    // 4~6초 사이의 랜덤 지연 시간 설정
+                    const delayTime = Math.floor(Math.random() * (6000 - 4000 + 1)) + 4000;
+                    await new Promise(resolve => setTimeout(resolve, delayTime));
+
                     status.innerText = `상세 내용 추출 중: ${totalProcessed}번째 게시글...`;
 
                     const postData = await this.fetchPostDetail(blogId, logNo, title, fullUrl);
