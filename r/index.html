@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDE_RENDER 2K Studio — 사내 전용 스케치업 실사 변환기 (v3.3)</title>
+
+    <!-- Search Engine Block (Crawler Disallow) -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="bingbot" content="noindex, nofollow">
+    <meta name="referrer" content="no-referrer">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./render.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-inner render-header-inner">
+                <div class="brand">
+                    <a href="../" class="back-link" title="대시보드로 돌아가기">← 홈</a>
+                    <span class="brand-badge">v3.3 GOLDEN</span>
+                    <span class="brand-title">INDE_RENDER 2K Studio</span>
+                </div>
+                <div class="header-actions">
+                    <span id="api-status-badge" class="engine-pill pill-standby">API 미설정 (대기 모드)</span>
+                    <span class="engine-pill">gemini-3.1-flash-image · 2K 고정</span>
+                    <span id="current-clock" class="clock">--:--:--</span>
+                    <button id="theme-toggle" class="btn-icon" aria-label="테마 전환" title="다크/라이트 모드 전환">
+                        <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                        <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container render-container">
+                <!-- Top Summary & Spec Banner -->
+                <section class="banner-section render-banner">
+                    <div class="banner-header">
+                        <span class="status-pill">
+                            <span class="status-dot"></span>
+                            단일 현장 다중 컷 색감·천장 균일화 엔진 (최대 10장)
+                        </span>
+                        <span class="cost-badge" id="estimated-cost-badge">예상 비용: 0원 (장당 약 140.5원)</span>
+                    </div>
+                    <h1 class="banner-title">스케치업 2K 실사 일괄 렌더링</h1>
+                    <p class="banner-desc">
+                        원본 사물 삭제 금지 · 없는 사물 창작 금지 · 천장 및 공통 공간 색감/자재 자동 균일화 · 텍스트/로고 선명도 유지 규칙이 고정 적용되어 있습니다.
+                    </p>
+                </section>
+
+                <!-- Top Control Row: API Key & Core Rules -->
+                <div class="control-grid">
+                    <!-- API Configuration Card (Empty by default) -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">1. Google AI Studio API 설정</h2>
+                            <span class="card-hint">기본값: 비워둠 (과금 완전 차단 상태)</span>
+                        </div>
+                        <div class="api-box">
+                            <div class="api-input-row">
+                                <input
+                                    type="password"
+                                    id="api-key-input"
+                                    class="text-input"
+                                    placeholder="사용하실 때 Google AI Studio API Key를 입력하세요 (현재 비워둠)"
+                                    autocomplete="off"
+                                >
+                                <button type="button" id="toggle-key-vis" class="btn-secondary">표시</button>
+                                <button type="button" id="save-api-key-btn" class="btn-secondary">브라우저 저장</button>
+                                <button type="button" id="clear-api-key-btn" class="btn-secondary">비우기</button>
+                            </div>
+                            <p class="helper-text">
+                                ※ 코드 내 API 키는 비워져 있습니다. 키를 입력하지 않으면 렌더링 호출이 실행되지 않아 비용이 발생하지 않습니다.
+                            </p>
+                        </div>
+
+                        <div class="custom-note-box">
+                            <label for="custom-note-input" class="field-label">선택 추가 지시사항 (Custom Directive)</label>
+                            <input
+                                type="text"
+                                id="custom-note-input"
+                                class="text-input"
+                                placeholder="비워두면 v3.3 기본 절대 규칙만 적용됩니다 (특정 사물 명사 입력 지양)"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Locked 5 Core Laws Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">2. 고정 적용된 5대 절대 규칙 (v3.3)</h2>
+                            <span class="card-hint">Universal Core Laws</span>
+                        </div>
+                        <ul class="law-list">
+                            <li>
+                                <span class="law-tag">규칙 1</span>
+                                <span><strong>원본 사물 삭제 금지:</strong> 원본에 있는 사물·모니터 화면·오브제·설비는 절대 지우지 않음</span>
+                            </li>
+                            <li>
+                                <span class="law-tag">규칙 2</span>
+                                <span><strong>없는 사물 창작 금지:</strong> 원본에 없는 전등·시계·로고·복합기·유리벽 생성 절대 금지</span>
+                            </li>
+                            <li>
+                                <span class="law-tag">규칙 3</span>
+                                <span><strong>천장·공통 장소 균일화:</strong> 2장 이상 업로드 시 동일 현장으로 인식해 천장·바닥·벽 색감/자재 통일</span>
+                            </li>
+                            <li>
+                                <span class="law-tag">규칙 4</span>
+                                <span><strong>텍스트 깨짐 방지:</strong> 로고·사인물 글자의 원본 철자·폰트 형태·색상을 번짐 없이 선명하게 유지</span>
+                            </li>
+                            <li>
+                                <span class="law-tag">규칙 5</span>
+                                <span><strong>폴리곤 그물망 제거:</strong> 곡면 가구(검은 가죽 소파 등)의 검은색 3D 삼각 메쉬 선 완전 소거</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 3: Batch Upload Dropzone (Max 10 Images) -->
+                <section class="card upload-section">
+                    <div class="card-header">
+                        <div>
+                            <h2 class="card-title">3. 스케치업 이미지 업로드 (최대 10장 · 단일 현장 일괄 처리)</h2>
+                            <p class="section-sub">여러 장을 올리면 모든 이미지의 픽셀을 상호 스캔하여 공통 천장·바닥·벽체 색감 기준점(HEX)을 자동으로 고정합니다.</p>
+                        </div>
+                        <div class="upload-actions">
+                            <span id="queue-count-badge" class="count-badge">0 / 10장</span>
+                            <button type="button" id="clear-queue-btn" class="btn-secondary" disabled>전체 비우기</button>
+                        </div>
+                    </div>
+
+                    <div id="dropzone" class="dropzone" tabindex="0">
+                        <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" multiple hidden>
+                        <div class="dropzone-content">
+                            <div class="dropzone-icon">🖼️</div>
+                            <div class="dropzone-title">이곳에 스케치업 이미지를 드래그하거나 클릭하여 선택하세요</div>
+                            <div class="dropzone-sub">JPG, PNG, WEBP 지원 · 한 번에 최대 10장 · 원본 비율 그대로 2K 변환</div>
+                        </div>
+                    </div>
+
+                    <!-- Extracted Mutual Palette Bar (Visible when >= 1 image uploaded) -->
+                    <div id="palette-bar" class="palette-bar hidden">
+                        <div class="palette-header">
+                            <span class="palette-title">🎨 단일 현장 상호 스캔 공통 색감 기준점 (`build_mutual_palette_summary`)</span>
+                            <button type="button" id="toggle-json-btn" class="btn-link">전송될 v3.3 JSON 프롬프트 보기 ▼</button>
+                        </div>
+                        <div class="swatch-grid">
+                            <div class="swatch-item">
+                                <span id="swatch-ceiling" class="swatch-color"></span>
+                                <div class="swatch-meta">
+                                    <span class="swatch-label">공통 천장 톤 (Ceiling)</span>
+                                    <code id="hex-ceiling" class="swatch-hex">#F3F3F1</code>
+                                </div>
+                            </div>
+                            <div class="swatch-item">
+                                <span id="swatch-floor" class="swatch-color"></span>
+                                <div class="swatch-meta">
+                                    <span class="swatch-label">공통 바닥 타일 (Floor)</span>
+                                    <code id="hex-floor" class="swatch-hex">#A8A6A1</code>
+                                </div>
+                            </div>
+                            <div class="swatch-item">
+                                <span id="swatch-dark" class="swatch-color"></span>
+                                <div class="swatch-meta">
+                                    <span class="swatch-label">공통 다크 우드/패널 (Dark Surface)</span>
+                                    <code id="hex-dark" class="swatch-hex">#5A524B</code>
+                                </div>
+                            </div>
+                            <div class="swatch-item">
+                                <span id="swatch-warm" class="swatch-color"></span>
+                                <div class="swatch-meta">
+                                    <span class="swatch-label">공통 라이트 우드/벽체 (Warm Surface)</span>
+                                    <code id="hex-warm" class="swatch-hex">#C9B9A6</code>
+                                </div>
+                            </div>
+                        </div>
+                        <pre id="json-preview" class="json-preview hidden"></pre>
+                    </div>
+
+                    <!-- Uploaded Thumbnail Queue -->
+                    <div id="upload-queue" class="upload-queue"></div>
+
+                    <!-- Batch Action Footer -->
+                    <div class="batch-action-bar">
+                        <div class="batch-progress-info">
+                            <span id="batch-status-text">이미지를 업로드하면 2K 일괄 변환 준비가 완료됩니다.</span>
+                            <div class="progress-track">
+                                <div id="batch-progress-bar" class="progress-fill"></div>
+                            </div>
+                        </div>
+                        <div class="batch-buttons">
+                            <button type="button" id="download-all-btn" class="btn-secondary" disabled>완료본 일괄 다운로드</button>
+                            <button type="button" id="start-render-btn" class="btn-primary" disabled>2K 실사 일괄 렌더링 시작</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Step 4: Rendered Results & Before/After Slider Gallery -->
+                <section id="results-section" class="card results-section hidden">
+                    <div class="card-header">
+                        <div>
+                            <h2 class="card-title">4. 2K 렌더링 결과 및 원본 비교 (Before & After)</h2>
+                            <p class="section-sub">슬라이더를 좌우로 움직여 원본 스케치업과 2K 실사 렌더링 결과를 비교하고 개별 또는 일괄 저장하세요.</p>
+                        </div>
+                    </div>
+                    <div id="results-grid" class="results-grid"></div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container footer-inner">
+                <span>INDE_RENDER 2K Studio (v3.3 Golden Master)</span>
+                <span class="footer-sep">•</span>
+                <span>models/gemini-3.1-flash-image (2K Lock)</span>
+                <span class="footer-sep">•</span>
+                <span>Private Internal Tool</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../main.js"></script>
+    <script src="./render.js"></script>
+</body>
+</html>
