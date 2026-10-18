@@ -20,16 +20,16 @@
     const MAX_BATCH_SIZE = 10;
     const COST_PER_IMAGE_KRW = 140.5;
 
-    // 2. Universal Zero-Invention & Crisp Text JSON Specification (v3.3)
+    // 2. Universal Zero-Invention & Crisp Text JSON Specification (v3.4)
     const UNIVERSAL_ZERO_INVENTION_JSON = {
         role: 'Deterministic Architectural PBR Renderer',
-        task: 'Convert the attached 3D viewport capture into a realistic 2K architectural photograph by removing black CAD edge lines and polygon wireframe meshes, and applying realistic surface textures and natural lighting.',
+        task: 'Convert the attached SketchUp/CAD viewport capture into a realistic 2K architectural photograph by completely erasing all black SketchUp vector edge lines, CAD construction lines, and polygon wireframe meshes, while applying realistic physical textures and natural lighting to the existing surfaces.',
         absolute_core_laws: {
-            law_1_never_delete_existing: 'Do NOT remove or omit anything present in the original image. Every existing object, fixture, and structure in the original image must remain in its exact place.',
-            law_2_never_invent_missing: 'Do NOT create or add anything that does not exist in the original image. Blank ceilings and blank walls must stay completely blank.',
+            law_1_never_delete_existing: 'Do NOT remove or omit any 3D object, furniture, shelf item, or structure present in the original image. Every existing 3D item must remain in its exact place and silhouette.',
+            law_2_never_invent_missing: 'Do NOT create or add anything that does not exist in the original image. NEVER turn thin black SketchUp CAD division lines on ceilings or walls into air vents, linear diffusers, slots, or deep seams.',
             law_3_shared_space_and_ceiling_uniformity: 'Ceilings within the image, and any shared architectural areas (ceilings, walls, floors) appearing across 2 or more images of the same space, MUST maintain a strictly uniform color tone, brightness, and material finish.',
-            law_4_crisp_text_and_lettering_preservation: 'Any text, lettering, or typography visible in the original image MUST be preserved with razor-sharp clarity — keep the exact original spelling, character shapes, font proportions, and color without garbling, warping, or blurring the letters.',
-            law_5_polygon_mesh_cleanup: 'Remove black 3D triangulation wireframe lines on curved furniture and render them as smooth, realistic surfaces in their original color.'
+            law_4_crisp_text_and_lettering_preservation: 'Any text, lettering, signage, or poster typography visible in the original image MUST be preserved with razor-sharp clarity — keep the exact original spelling, character shapes, font proportions, and color without garbling, warping, or splitting letters with lines.',
+            law_5_cad_line_and_polygon_mesh_erasure: 'Thin black SketchUp vector outlines on ceilings, walls, and panels are CAD wireframe artifacts, NOT physical gaps or vents — erase those black lines completely so the surfaces appear as clean, seamless real-world finishes. Also remove black 3D triangulation meshes on curved furniture.'
         },
         structure_lock: {
             camera_and_framing: 'identical camera angle, focal length, perspective lines, and aspect ratio crop as the original image',
@@ -44,12 +44,25 @@
             white_balance: '4800K clean neutral daylight',
             depth_of_field: 'deep and tack-sharp from foreground to background'
         },
+        materials_translation_rule: {
+            principle: 'Translate each visible surface in the input image into its direct physical material counterpart while preserving exact original colors:',
+            ceiling_planes: 'smooth matte painted gypsum ceiling; completely erase thin black CAD centerlines and grid strokes instead of turning them into vents or slots, keeping only the exact lighting coves and small fixtures drawn in the original',
+            wall_and_panel_surfaces: 'preserve exact original material and color (woodgrain panels, smooth painted/backlit walls, neutral partitions); erase black CAD contour lines without splitting walls or logos',
+            flooring: 'realistic matte carpet tiles or porcelain floor tiles matching the exact pattern and neutral grey tone of the original image',
+            furniture_and_display_items: 'preserve every shelf item, display object, cabinet, and seating piece in its exact original color and material (white/grey office furniture must remain white/grey)'
+        },
+        realism_layer: {
+            edge_behavior: 'completely remove all black SketchUp vector contour lines and polygon triangulation strokes, replacing them with realistic physical micro-bevels and natural ambient occlusion shadows',
+            surface_imperfection: 'subtle, authentic micro-roughness on drywall, tile, carpet, wood veneer, glass, and metal; zero CGI plastic look',
+            grain: 'negligible; clean ISO 100 capture'
+        },
         output: {
             aspect_ratio: 'identical to the original input image',
             resolution: '2K'
         },
         negative_prompt: [
             'sketch outlines', 'black contour lines', 'CAD wireframe edges', 'polygon triangulation mesh',
+            'hallucinated ceiling vents', 'hallucinated linear diffusers', 'turning CAD lines into vents or seams',
             'added objects', 'deleted objects', 'garbled text', 'deformed letters', 'broken typography',
             'inconsistent ceiling color', 'inconsistent material tone', '3D render', 'CGI'
         ]
